@@ -1,0 +1,48 @@
+{
+  "data":{
+    "movies":[
+      {
+        "title":"The Scorch Trials",
+        "originalTitle":"",
+        "year":"2015",
+        "releaseDate":"20150918",
+        "directors":[
+          {
+            "name":"Wes Ball",
+            "id":"nm1226871"
+          }
+        ],
+        "writers":[
+          {
+            "name":"T.S. Nowlin",
+            "id":"nm2385905"
+          },
+          {
+            "name":"James Dashner",
+            "id":"nm4212895"
+          }
+        ],
+        "runtime":"132 min",
+        "urlPoster":"http:\/\/ia.media-imdb.com\/images\/M\/MV5BMjE3MDU2NzQyMl5BMl5BanBnXkFtZTgwMzQxMDQ3NTE@._V1_UX182_CR0,0,182,268_AL_.jpg",
+        "countries":["USA"],
+        "languages":["English"],
+        "genres":["Action","Sci-Fi","Thriller"],
+        "plot":"In this next chapter of the epic \"Maze Runner\" saga, Thomas (Dylan O'Brien) and his fellow Gladers face their greatest challenge yet: searching for clues about the mysterious and powerful organization known as WCKD. Their journey takes them to the Scorch, a desolate landscape filled with unimaginable obstacles. Teaming up with resistance fighters, the Gladers take on WCKD's vastly superior forces and uncover its shocking plans for them all.",
+        "simplePlot":"After having escaped the Maze, the Gladers now face a new set of challenges on the open roads of a desolate landscape filled with unimaginable obstacles.",
+        "idIMDB":"tt4046784",
+        "urlIMDB":"http:\/\/www.imdb.com\/title\/tt4046784",
+        "rating":"6.4",
+        "metascore":"43",
+        "filmingLocations":["New Mexico","USA"],
+        "rated":"PG-13",
+        "votes":"130,965",
+        "type":"Movie"
+      }
+    ]
+  },
+  "about":{
+    "version":"2.23.0",
+    "serverTime":"2016\/06\/22 20:19:32"
+  }
+}
+
