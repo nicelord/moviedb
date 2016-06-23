@@ -5,9 +5,14 @@
  */
 package moviedb;
 
+import com.jaunt.ResponseException;
+import com.jaunt.UserAgent;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JComboBox;
+import javax.swing.JProgressBar;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -80,79 +85,125 @@ public class FormUtama extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         txtWriter = new javax.swing.JTextArea();
+        jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        txtStreamCode = new javax.swing.JTextField();
+        txtDownlink = new javax.swing.JTextField();
+        cmbQuality = new javax.swing.JComboBox();
+        cmbResolution = new javax.swing.JComboBox();
+        txtFileSize = new javax.swing.JTextField();
+        cmbSizeUnit = new javax.swing.JComboBox();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         txtLog = new javax.swing.JTextArea();
         txtPostURL = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         spinerDateTime = new javax.swing.JSpinner();
-        cmbPostStatus = new javax.swing.JComboBox<>();
+        cmbPostStatus = new javax.swing.JComboBox<String>();
         jButton2 = new javax.swing.JButton();
+        progress = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel1.setText("IMDB ID :");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel2.setText("TITLE :");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel3.setText("PLOT :");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel4.setText("YEAR : ");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel5.setText("RATING :");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel6.setText("DURATION :");
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel7.setText("CAST :");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel8.setText("DIRECTORS :");
 
+        txtIMDUrl.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtIMDUrl.setText("tt4046784");
 
+        txtTitle.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
         txtPlot.setColumns(20);
+        txtPlot.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtPlot.setRows(1);
         jScrollPane1.setViewportView(txtPlot);
 
+        txtYear.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+        txtRating.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+        txtRuntime.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
         txtDirectors.setColumns(20);
+        txtDirectors.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtDirectors.setRows(1);
         jScrollPane2.setViewportView(txtDirectors);
 
         txtCast.setColumns(20);
+        txtCast.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtCast.setRows(1);
         jScrollPane3.setViewportView(txtCast);
 
         txtCountries.setColumns(20);
+        txtCountries.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtCountries.setRows(1);
         jScrollPane4.setViewportView(txtCountries);
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel9.setText("COUNTRY :");
 
         txtPoster.setColumns(20);
+        txtPoster.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtPoster.setRows(1);
         jScrollPane5.setViewportView(txtPoster);
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel10.setText("POSTER :");
 
         txtGenres.setColumns(20);
+        txtGenres.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtGenres.setRows(1);
         jScrollPane6.setViewportView(txtGenres);
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel11.setText("GENRE :");
 
         txtThrailer.setColumns(20);
+        txtThrailer.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtThrailer.setRows(1);
         jScrollPane7.setViewportView(txtThrailer);
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel12.setText("TRAILER :");
 
         txtKeywords.setColumns(20);
+        txtKeywords.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtKeywords.setRows(1);
         jScrollPane8.setViewportView(txtKeywords);
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel13.setText("KEYWORD :");
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jButton1.setText("GET DATA");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,11 +211,21 @@ public class FormUtama extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel14.setText("WRITERS :");
 
         txtWriter.setColumns(20);
+        txtWriter.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtWriter.setRows(1);
         jScrollPane9.setViewportView(txtWriter);
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jButton3.setText("CHECK");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -194,7 +255,6 @@ public class FormUtama extends javax.swing.JFrame {
                     .addComponent(jScrollPane5)
                     .addComponent(jScrollPane4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtTitle, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -207,10 +267,14 @@ public class FormUtama extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtRuntime, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtIMDUrl)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtTitle, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIMDUrl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -224,7 +288,8 @@ public class FormUtama extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
-                    .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel3)
@@ -276,28 +341,101 @@ public class FormUtama extends javax.swing.JFrame {
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        cmbQuality.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BluRay", "CAM", "DVD-RIP", "HD-RIP", "HD-TS", "HD-TV", "N/A", "SCREENER", "TS", "TVRip", "WEB-DL", "WEB-RIP" }));
+
+        cmbResolution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1080p", "720p" }));
+
+        cmbSizeUnit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MB", "GB" }));
+
+        jLabel16.setText("GPHOTOS :");
+
+        jLabel17.setText("DL LINK :");
+
+        jLabel18.setText("QUALITY :");
+
+        jLabel19.setText("RESOULUTION :");
+
+        jLabel20.setText("SIZE :");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtStreamCode, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel20))
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDownlink, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txtFileSize, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbSizeUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cmbResolution, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbQuality, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 212, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStreamCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDownlink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbQuality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbResolution, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(txtFileSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbSizeUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         txtLog.setColumns(20);
+        txtLog.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtLog.setRows(5);
         jScrollPane10.setViewportView(txtLog);
 
+        txtPostURL.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtPostURL.setText("http://www.movietrex.com/privateposter.php");
 
         jLabel15.setText("Post URL :");
 
-        cmbPostStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "POST NOW", "SCHEDULE" }));
+        cmbPostStatus.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        cmbPostStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "POST NOW", "SCHEDULE" }));
 
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jButton2.setText("POST");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -305,30 +443,35 @@ public class FormUtama extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane10)
-                    .addComponent(txtPostURL)
+                    .addComponent(progress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(spinerDateTime)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbPostStatus, 0, 179, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane10)
+                            .addComponent(txtPostURL)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(spinerDateTime)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbPostStatus, 0, 179, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(7, 7, 7)
+                .addComponent(progress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPostURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,7 +481,7 @@ public class FormUtama extends javax.swing.JFrame {
                                 .addComponent(cmbPostStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(spinerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -360,9 +503,77 @@ public class FormUtama extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        txtCast.setText("");
+        txtCountries.setText("");
+        txtDirectors.setText("");
+        txtGenres.setText("");
+        txtKeywords.setText("");
+        txtLog.setText("");
+        txtPlot.setText("");
+        txtPoster.setText("");
+        txtRating.setText("");
+        txtRuntime.setText("");
+        txtRuntime.setText("");
+        txtThrailer.setText("");
+        txtTitle.setText("");
+        txtWriter.setText("");
+        txtYear.setText("");
+
         MovieDB mdb = new MovieDB(txtIMDUrl.getText(), this);
         mdb.start();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+
+        txtCast.setText("");
+        txtCountries.setText("");
+        txtDirectors.setText("");
+        txtGenres.setText("");
+        txtKeywords.setText("");
+        txtLog.setText("");
+        txtPlot.setText("");
+        txtPoster.setText("");
+        txtRating.setText("");
+        txtRuntime.setText("");
+        txtRuntime.setText("");
+        txtThrailer.setText("");
+        txtWriter.setText("");
+        txtYear.setText("");
+
+        progress.setValue(0);
+        progress.setIndeterminate(true);
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                UserAgent userAgent = new UserAgent();
+                try {
+                    txtLog.append("Checking similiar post...\n");
+                    userAgent.sendGET(txtPostURL.getText() + "?check=" + URLEncoder.encode(txtTitle.getText(), "UTF-8"));
+                    txtLog.append(userAgent.doc.innerHTML(1).replace("<br>", ""));
+                    txtLog.append("\n");
+                } catch (ResponseException localResponseException) {
+                    txtLog.append(localResponseException.getMessage() + "\n");
+                } catch (UnsupportedEncodingException ex) {
+                    txtLog.append(ex.getMessage() + "\n");
+                }
+                txtLog.append("DONE");
+
+                progress.setIndeterminate(false);
+                progress.setValue(100);
+            }
+        });
+        t.start();
+
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        PostProcess p = new PostProcess(this);
+        p.start();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -543,11 +754,71 @@ public class FormUtama extends javax.swing.JFrame {
         this.txtGenres = txtGenres;
     }
 
+    public JProgressBar getProgress() {
+        return progress;
+    }
+
+    public void setProgress(JProgressBar progress) {
+        this.progress = progress;
+    }
+
+    public JComboBox getCmbQuality() {
+        return cmbQuality;
+    }
+
+    public void setCmbQuality(JComboBox cmbQuality) {
+        this.cmbQuality = cmbQuality;
+    }
+
+    public JComboBox getCmbResolution() {
+        return cmbResolution;
+    }
+
+    public void setCmbResolution(JComboBox cmbResolution) {
+        this.cmbResolution = cmbResolution;
+    }
+
+    public JComboBox getCmbSizeUnit() {
+        return cmbSizeUnit;
+    }
+
+    public void setCmbSizeUnit(JComboBox cmbSizeUnit) {
+        this.cmbSizeUnit = cmbSizeUnit;
+    }
+
+    public JTextField getTxtDownlink() {
+        return txtDownlink;
+    }
+
+    public void setTxtDownlink(JTextField txtDownlink) {
+        this.txtDownlink = txtDownlink;
+    }
+
+    public JTextField getTxtFileSize() {
+        return txtFileSize;
+    }
+
+    public void setTxtFileSize(JTextField txtFileSize) {
+        this.txtFileSize = txtFileSize;
+    }
+
+    public JTextField getTxtStreamCode() {
+        return txtStreamCode;
+    }
+
+    public void setTxtStreamCode(JTextField txtStreamCode) {
+        this.txtStreamCode = txtStreamCode;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbPostStatus;
+    private javax.swing.JComboBox cmbQuality;
+    private javax.swing.JComboBox cmbResolution;
+    private javax.swing.JComboBox cmbSizeUnit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -555,7 +826,12 @@ public class FormUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -576,10 +852,13 @@ public class FormUtama extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JProgressBar progress;
     private javax.swing.JSpinner spinerDateTime;
     private javax.swing.JTextArea txtCast;
     private javax.swing.JTextArea txtCountries;
     private javax.swing.JTextArea txtDirectors;
+    private javax.swing.JTextField txtDownlink;
+    private javax.swing.JTextField txtFileSize;
     private javax.swing.JTextArea txtGenres;
     private javax.swing.JTextField txtIMDUrl;
     private javax.swing.JTextArea txtKeywords;
@@ -589,6 +868,7 @@ public class FormUtama extends javax.swing.JFrame {
     private javax.swing.JTextArea txtPoster;
     private javax.swing.JTextField txtRating;
     private javax.swing.JTextField txtRuntime;
+    private javax.swing.JTextField txtStreamCode;
     private javax.swing.JTextArea txtThrailer;
     private javax.swing.JTextField txtTitle;
     private javax.swing.JTextArea txtWriter;
