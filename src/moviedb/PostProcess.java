@@ -81,9 +81,15 @@ public class PostProcess
 //            if (!this.fu.getTxtDirectLink().getText().isEmpty()) {
 //                data.append("&directstream=").append(this.fu.getTxtDirectLink().getText());
 //            }
+
+//            if (!this.fu.getTxtStreamCode().getText().isEmpty()) {
+//                data.append("&embedstream=").append(this.fu.getTxtStreamCode().getText().replace("&", "%26"));
+//            }
+            
             if (!this.fu.getTxtStreamCode().getText().isEmpty()) {
-                data.append("&embedstream=").append(this.fu.getTxtStreamCode().getText().replace("&", "%26"));
+                data.append("&directstream=").append(this.fu.getTxtStreamCode().getText());
             }
+
             if (!this.fu.getTxtFileSize().getText().isEmpty()) {
                 data.append("&size=").append(this.fu.getTxtFileSize().getText()).append(this.fu.getCmbSizeUnit().getSelectedItem().toString());
             }
@@ -114,7 +120,7 @@ public class PostProcess
             this.fu.getTxtLog().append("\n");
             ex.printStackTrace();
         }
-        
+
         fu.getProgress().setIndeterminate(false);
         fu.getProgress().setValue(100);
     }
