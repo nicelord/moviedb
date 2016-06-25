@@ -105,11 +105,12 @@ public class FormUtama extends javax.swing.JFrame {
         txtPostURL = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         spinerDateTime = new javax.swing.JSpinner();
-        cmbPostStatus = new javax.swing.JComboBox<String>();
+        cmbPostStatus = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         progress = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MOVIEDB");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -345,22 +346,39 @@ public class FormUtama extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtStreamCode.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+        txtDownlink.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+        cmbQuality.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         cmbQuality.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BluRay", "CAM", "DVD-RIP", "HD-RIP", "HD-TS", "HD-TV", "N/A", "SCREENER", "TS", "TVRip", "WEB-DL", "WEB-RIP" }));
 
+        cmbResolution.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         cmbResolution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1080p", "720p" }));
 
+        txtFileSize.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+        cmbSizeUnit.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         cmbSizeUnit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MB", "GB" }));
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel16.setText("GPHOTOS :");
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel17.setText("DL LINK :");
 
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel18.setText("QUALITY :");
 
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel20.setText("SIZE :");
 
+        txtGPhotos.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel21.setText("VIDEO LINK :");
 
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jButton4.setText("FETCH");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -450,10 +468,11 @@ public class FormUtama extends javax.swing.JFrame {
         txtPostURL.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtPostURL.setText("http://www.movietrex.com/privateposter.php");
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel15.setText("Post URL :");
 
         cmbPostStatus.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        cmbPostStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "POST NOW", "SCHEDULE" }));
+        cmbPostStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "POST NOW", "SCHEDULE" }));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jButton2.setText("POST");
@@ -493,7 +512,7 @@ public class FormUtama extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(progress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -509,8 +528,8 @@ public class FormUtama extends javax.swing.JFrame {
                                 .addComponent(spinerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addComponent(jScrollPane10)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -675,7 +694,9 @@ public class FormUtama extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormUtama().setVisible(true);
+                FormUtama fu = new FormUtama();
+                fu.setLocationRelativeTo(null);
+                fu.setVisible(true);
             }
         });
     }
