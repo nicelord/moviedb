@@ -69,7 +69,7 @@ public class MovieDB
             fu.getTxtRuntime().setText(runtime);
 
             String poster = movie.findFirst("urlPoster").toString().replace("\\", "");
-            fu.getTxtPoster().setText(poster);
+            fu.getTxtPoster().setText(poster.split("@")[0]+"@._V1_SX200.jpg");
 
             JNode casts = movie.findEvery("actorName");
             for (JNode node : casts) {
