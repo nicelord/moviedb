@@ -727,8 +727,8 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
-                    <StringItem index="0" value="1080p"/>
-                    <StringItem index="1" value="720p"/>
+                    <StringItem index="0" value="720p"/>
+                    <StringItem index="1" value="1080p"/>
                   </StringArray>
                 </Property>
               </Properties>

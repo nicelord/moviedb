@@ -67,6 +67,9 @@ public class PostProcess
             if (!this.fu.getCmbResolution().getSelectedItem().toString().isEmpty()) {
                 data.append("&resolution=").append(this.fu.getCmbResolution().getSelectedItem().toString());
             }
+            if (!this.fu.getTxtGPhotos().getText().isEmpty()) {
+                data.append("&gphotos=").append(this.fu.getTxtGPhotos().getText());
+            }
             if (!this.fu.getTxtDownlink().getText().isEmpty()) {
                 data.append("&downlink=").append(this.fu.getTxtDownlink().getText());
             }

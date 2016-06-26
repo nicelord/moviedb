@@ -354,7 +354,7 @@ public class FormUtama extends javax.swing.JFrame {
         cmbQuality.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BluRay", "CAM", "DVD-RIP", "HD-RIP", "HD-TS", "HD-TV", "N/A", "SCREENER", "TS", "TVRip", "WEB-DL", "WEB-RIP" }));
 
         cmbResolution.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        cmbResolution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1080p", "720p" }));
+        cmbResolution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "720p", "1080p" }));
 
         txtFileSize.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
@@ -639,16 +639,6 @@ public class FormUtama extends javax.swing.JFrame {
                     userAgent.sendGET(txtGPhotos.getText());
                     String vidLink = userAgent.doc.innerHTML().split("property=\"og:image\" content=\"")[1].split("=")[0];
                     txtStreamCode.setText(vidLink);
-                    String maxRes = userAgent.doc.innerHTML().split(vidLink)[2].substring(2, 5);
-                    switch (maxRes) {
-                        case "854":
-                            cmbResolution.setSelectedItem("1080p");
-                            break;
-                        case "720":
-                            cmbResolution.setSelectedItem("720p");
-                            break;
-                    }
-                    
                     String downloadLink = userAgent.doc.innerHTML().split("https://video.googleusercontent.com")[1].split("\",")[0];
                     txtDownlink.setText("https://video.googleusercontent.com" + downloadLink);
                   
@@ -899,6 +889,14 @@ public class FormUtama extends javax.swing.JFrame {
 
     public void setTxtStreamCode(JTextField txtStreamCode) {
         this.txtStreamCode = txtStreamCode;
+    }
+
+    public JTextField getTxtGPhotos() {
+        return txtGPhotos;
+    }
+
+    public void setTxtGPhotos(JTextField txtGPhotos) {
+        this.txtGPhotos = txtGPhotos;
     }
 
 
