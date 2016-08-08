@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.Calendar;
 import java.util.Date;
@@ -111,6 +112,9 @@ public class FormUtama extends javax.swing.JFrame {
         txtGPhotos = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        txtFileName = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         txtLog = new javax.swing.JTextArea();
         txtPostURL = new javax.swing.JTextField();
@@ -394,7 +398,7 @@ public class FormUtama extends javax.swing.JFrame {
         cmbQuality.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BluRay", "CAM", "DVD-RIP", "HD-RIP", "HD-TS", "HD-TV", "N/A", "SCREENER", "TS", "TVRip", "WEB-DL", "WEB-RIP" }));
 
         cmbResolution.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        cmbResolution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "720p", "1080p" }));
+        cmbResolution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "720p", "1080p", "N/A" }));
 
         txtFileSize.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
@@ -426,14 +430,19 @@ public class FormUtama extends javax.swing.JFrame {
             }
         });
 
+        btnSearch.setText("SEARCH");
+
+        jLabel5.setText("NAME :");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
@@ -443,23 +452,32 @@ public class FormUtama extends javax.swing.JFrame {
                                 .addComponent(cmbSizeUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
                                     .addComponent(jLabel21)
                                     .addComponent(jLabel17))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtStreamCode, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtGPhotos)
-                                    .addComponent(txtDownlink))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(txtDownlink)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addGap(34, 34, 34)
-                        .addComponent(cmbQuality, 0, 97, Short.MAX_VALUE)
+                        .addComponent(cmbQuality, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbResolution, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))))
+                        .addGap(24, 24, 24))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel5))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFileName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtGPhotos, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,9 +485,14 @@ public class FormUtama extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel16)
-                    .addComponent(txtGPhotos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtGPhotos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel21)
@@ -544,11 +567,11 @@ public class FormUtama extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(progress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPostURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -559,8 +582,8 @@ public class FormUtama extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spinerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane10)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -657,7 +680,7 @@ public class FormUtama extends javax.swing.JFrame {
 
         txtDownlink.setText("");
         txtStreamCode.setText("");
-        
+
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -673,11 +696,56 @@ public class FormUtama extends javax.swing.JFrame {
                     txtStreamCode.setText(vidLink);
                     String downloadLink = userAgent.doc.innerHTML().split("https://video.googleusercontent.com")[1].split("\",")[0];
                     txtDownlink.setText("https://video.googleusercontent.com" + downloadLink);
-                  
+
+                    String fileNameLink = userAgent.doc.innerHTML().split("https://lh3.googleusercontent.com/")[1].split("=w600")[0];
+                    URL obj = new URL("https://lh3.googleusercontent.com/" + fileNameLink + "=w72-h39-k-rw-no");
+                    URLConnection conn = obj.openConnection();
+                    String filename = conn.getHeaderField("content-disposition");
+                    getTxtFileName().setText(filename.split("\"")[1]);
+
+                    if(filename.toLowerCase().contains("bluray")|filename.toLowerCase().contains("blu-ray")){
+                        cmbQuality.setSelectedItem("BluRay");
+                    }else if (filename.toLowerCase().contains("webdl")|filename.toLowerCase().contains("web-dl")){
+                        cmbQuality.setSelectedItem("WEB-DL");
+                    }else if (filename.toLowerCase().contains("webrip")|filename.toLowerCase().contains("web-rip")){
+                        cmbQuality.setSelectedItem("WEB-RIP");
+                    }else if (filename.toLowerCase().contains("cam")){
+                        cmbQuality.setSelectedItem("CAM");
+                    }else if (filename.toLowerCase().contains("dvdrip")|filename.toLowerCase().contains("dvd-rip")){
+                        cmbQuality.setSelectedItem("DVD-RIP");
+                    }else if (filename.toLowerCase().contains("hdrip")|filename.toLowerCase().contains("hd-rip")){
+                        cmbQuality.setSelectedItem("HD-RIP");
+                    }else if (filename.toLowerCase().contains("hdts")|filename.toLowerCase().contains("hd-ts")){
+                        cmbQuality.setSelectedItem("HD-TS");
+                    }else if (filename.toLowerCase().contains("hdtv")|filename.toLowerCase().contains("hd-tv")){
+                        cmbQuality.setSelectedItem("HD-TV");
+                    }else if (filename.toLowerCase().contains("screener")){
+                        cmbQuality.setSelectedItem("SCREENER");
+                    }else if (filename.toLowerCase().contains("TS")){
+                        cmbQuality.setSelectedItem("TS");
+                    }else if (filename.toLowerCase().contains("tvrip")|filename.toLowerCase().contains("tv-rip")){
+                        cmbQuality.setSelectedItem("TV-RIP");
+                    }else{
+                        cmbQuality.setSelectedItem("N/A");
+                    }
+                    
+                    
+                    if(filename.toLowerCase().contains("1080p")|filename.toLowerCase().contains("1080")){
+                        cmbResolution.setSelectedItem("1080");
+                    }else if (filename.toLowerCase().contains("720p")|filename.toLowerCase().contains("720")){
+                        cmbQuality.setSelectedItem("720p");
+                    }else{
+                        cmbQuality.setSelectedItem("N/A");
+                    }
+
                 } catch (ResponseException localResponseException) {
                     txtLog.append(localResponseException.getMessage() + "\n");
-                } 
-                
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(FormUtama.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(FormUtama.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 txtLog.append("DONE\n\n");
                 progress.setIndeterminate(false);
                 progress.setValue(100);
@@ -689,16 +757,16 @@ public class FormUtama extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         try {
-                getLblPoster().setText("");
-                URL url = new URL(getTxtPoster().getText());
-                BufferedImage image = ImageIO.read(url);
-                getLblPoster().setIcon(new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(getPanelPoster().getWidth(), getPanelPoster().getHeight(), Image.SCALE_DEFAULT)));
-                
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(MovieDB.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(MovieDB.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            getLblPoster().setText("");
+            URL url = new URL(getTxtPoster().getText());
+            BufferedImage image = ImageIO.read(url);
+            getLblPoster().setIcon(new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(getPanelPoster().getWidth(), getPanelPoster().getHeight(), Image.SCALE_DEFAULT)));
+
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(MovieDB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MovieDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -785,8 +853,6 @@ public class FormUtama extends javax.swing.JFrame {
     public void setTxtPoster(JTextField txtPoster) {
         this.txtPoster = txtPoster;
     }
-
- 
 
     public JTextField getTxtRating() {
         return txtRating;
@@ -963,11 +1029,18 @@ public class FormUtama extends javax.swing.JFrame {
     public void setPanelPoster(JPanel panelPoster) {
         this.panelPoster = panelPoster;
     }
-    
-    
+
+    public JTextField getTxtFileName() {
+        return txtFileName;
+    }
+
+    public void setTxtFileName(JTextField txtFileName) {
+        this.txtFileName = txtFileName;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cmbPostStatus;
     private javax.swing.JComboBox cmbQuality;
     private javax.swing.JComboBox cmbResolution;
@@ -992,6 +1065,7 @@ public class FormUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1015,6 +1089,7 @@ public class FormUtama extends javax.swing.JFrame {
     private javax.swing.JTextArea txtCountries;
     private javax.swing.JTextArea txtDirectors;
     private javax.swing.JTextField txtDownlink;
+    private javax.swing.JTextField txtFileName;
     private javax.swing.JTextField txtFileSize;
     private javax.swing.JTextField txtGPhotos;
     private javax.swing.JTextArea txtGenres;

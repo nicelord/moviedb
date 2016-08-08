@@ -79,11 +79,11 @@
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Component id="progress" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPanel3" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtPostURL" min="-2" max="-2" attributes="0"/>
@@ -96,8 +96,8 @@
                               </Group>
                               <Component id="jButton2" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jScrollPane10" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane10" min="-2" pref="187" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -633,42 +633,56 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                       <Component id="txtFileSize" min="-2" pref="49" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="cmbSizeUnit" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txtStreamCode" alignment="0" pref="225" max="32767" attributes="0"/>
-                                          <Component id="jButton4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtGPhotos" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtDownlink" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="cmbQuality" pref="97" max="32767" attributes="0"/>
+                              <Component id="cmbQuality" max="32767" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="cmbResolution" min="-2" pref="94" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtFileName" min="-2" pref="146" max="-2" attributes="0"/>
+                                  <Component id="txtGPhotos" min="-2" pref="146" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnSearch" max="32767" attributes="0"/>
+                                  <Component id="jButton4" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -678,10 +692,17 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtGPhotos" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtGPhotos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtFileName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
@@ -753,9 +774,10 @@
                   <Font name="Segoe UI" size="11" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
+                  <StringArray count="3">
                     <StringItem index="0" value="720p"/>
                     <StringItem index="1" value="1080p"/>
+                    <StringItem index="2" value="N/A"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -837,6 +859,18 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtFileName">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSearch">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="SEARCH"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NAME :"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
