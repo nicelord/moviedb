@@ -4,10 +4,18 @@ import com.jaunt.JNode;
 import com.jaunt.NotFound;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class MovieDB
         extends Thread {
@@ -69,7 +77,21 @@ public class MovieDB
             fu.getTxtRuntime().setText(runtime);
 
             String poster = movie.findFirst("urlPoster").toString().replace("\\", "");
-            fu.getTxtPoster().setText(poster.split("@")[0]+"@._V1_SX200.jpg");
+            fu.getTxtPoster().setText(poster.split("@")[0]+"@._V1_UY268_CR23,0,182,268_AL_.jpg");
+                    
+            try {
+                fu.getLblPoster().setText("");
+                URL url = new URL(fu.getTxtPoster().getText());
+                BufferedImage image = ImageIO.read(url);
+                fu.getLblPoster().setIcon(new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(fu.getPanelPoster().getWidth(), fu.getPanelPoster().getHeight(), Image.SCALE_DEFAULT)));
+                
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(MovieDB.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MovieDB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                    
+                    
 
             JNode casts = movie.findEvery("actorName");
             for (JNode node : casts) {
