@@ -77,7 +77,7 @@ public class MovieDB
             fu.getTxtRuntime().setText(runtime);
 
             String poster = movie.findFirst("urlPoster").toString().replace("\\", "");
-            fu.getTxtPoster().setText(poster.split("@")[0]+"@._V1_UY268_CR23,0,182,268_AL_.jpg");
+            fu.getTxtPoster().setText(poster.split("@")[0]+"@._V1_UY296_CR0,0,200,296_AL_.jpg");
                     
             try {
                 fu.getLblPoster().setText("");
