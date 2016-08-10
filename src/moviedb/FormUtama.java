@@ -121,7 +121,7 @@ public class FormUtama extends javax.swing.JFrame {
         txtPostURL = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         spinerDateTime = new javax.swing.JSpinner();
-        cmbPostStatus = new javax.swing.JComboBox<>();
+        cmbPostStatus = new javax.swing.JComboBox<String>();
         jButton2 = new javax.swing.JButton();
         progress = new javax.swing.JProgressBar();
 
@@ -261,6 +261,11 @@ public class FormUtama extends javax.swing.JFrame {
         );
 
         jButton6.setText("SPIN PLOT");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -538,7 +543,7 @@ public class FormUtama extends javax.swing.JFrame {
         jLabel15.setText("Post URL :");
 
         cmbPostStatus.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        cmbPostStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "POST NOW", "SCHEDULE" }));
+        cmbPostStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "POST NOW", "SCHEDULE" }));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jButton2.setText("POST");
@@ -715,38 +720,37 @@ public class FormUtama extends javax.swing.JFrame {
                     String filename = conn.getHeaderField("content-disposition");
                     getTxtFileName().setText(filename.split("\"")[1]);
 
-                    if(filename.toLowerCase().contains("bluray")|filename.toLowerCase().contains("blu-ray")){
+                    if (filename.toLowerCase().contains("bluray") | filename.toLowerCase().contains("blu-ray")) {
                         cmbQuality.setSelectedItem("BluRay");
-                    }else if (filename.toLowerCase().contains("webdl")|filename.toLowerCase().contains("web-dl")){
+                    } else if (filename.toLowerCase().contains("webdl") | filename.toLowerCase().contains("web-dl")) {
                         cmbQuality.setSelectedItem("WEB-DL");
-                    }else if (filename.toLowerCase().contains("webrip")|filename.toLowerCase().contains("web-rip")){
+                    } else if (filename.toLowerCase().contains("webrip") | filename.toLowerCase().contains("web-rip")) {
                         cmbQuality.setSelectedItem("WEB-RIP");
-                    }else if (filename.toLowerCase().contains("cam")){
+                    } else if (filename.toLowerCase().contains("cam")) {
                         cmbQuality.setSelectedItem("CAM");
-                    }else if (filename.toLowerCase().contains("dvdrip")|filename.toLowerCase().contains("dvd-rip")){
+                    } else if (filename.toLowerCase().contains("dvdrip") | filename.toLowerCase().contains("dvd-rip")) {
                         cmbQuality.setSelectedItem("DVD-RIP");
-                    }else if (filename.toLowerCase().contains("hdrip")|filename.toLowerCase().contains("hd-rip")){
+                    } else if (filename.toLowerCase().contains("hdrip") | filename.toLowerCase().contains("hd-rip")) {
                         cmbQuality.setSelectedItem("HD-RIP");
-                    }else if (filename.toLowerCase().contains("hdts")|filename.toLowerCase().contains("hd-ts")){
+                    } else if (filename.toLowerCase().contains("hdts") | filename.toLowerCase().contains("hd-ts")) {
                         cmbQuality.setSelectedItem("HD-TS");
-                    }else if (filename.toLowerCase().contains("hdtv")|filename.toLowerCase().contains("hd-tv")){
+                    } else if (filename.toLowerCase().contains("hdtv") | filename.toLowerCase().contains("hd-tv")) {
                         cmbQuality.setSelectedItem("HD-TV");
-                    }else if (filename.toLowerCase().contains("screener")){
+                    } else if (filename.toLowerCase().contains("screener")) {
                         cmbQuality.setSelectedItem("SCREENER");
-                    }else if (filename.toLowerCase().contains("TS")){
+                    } else if (filename.toLowerCase().contains("TS")) {
                         cmbQuality.setSelectedItem("TS");
-                    }else if (filename.toLowerCase().contains("tvrip")|filename.toLowerCase().contains("tv-rip")){
+                    } else if (filename.toLowerCase().contains("tvrip") | filename.toLowerCase().contains("tv-rip")) {
                         cmbQuality.setSelectedItem("TV-RIP");
-                    }else{
+                    } else {
                         cmbQuality.setSelectedItem("N/A");
                     }
-                    
-                    
-                    if(filename.toLowerCase().contains("1080p")|filename.toLowerCase().contains("1080")){
+
+                    if (filename.toLowerCase().contains("1080p") | filename.toLowerCase().contains("1080")) {
                         cmbResolution.setSelectedItem("1080");
-                    }else if (filename.toLowerCase().contains("720p")|filename.toLowerCase().contains("720")){
+                    } else if (filename.toLowerCase().contains("720p") | filename.toLowerCase().contains("720")) {
                         cmbQuality.setSelectedItem("720p");
-                    }else{
+                    } else {
                         cmbQuality.setSelectedItem("N/A");
                     }
 
@@ -783,7 +787,7 @@ public class FormUtama extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        
+
         FormSearch fs = new FormSearch(this);
         fs.setVisible(true);
         this.setEnabled(false);
@@ -791,6 +795,16 @@ public class FormUtama extends javax.swing.JFrame {
         fs.setLocationRelativeTo(this);
         fs.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        
+        formSpinPlot fsp = new formSpinPlot(this);
+        this.setEnabled(false);
+        fsp.toFront();
+        fsp.setLocationRelativeTo(this);
+        fsp.setVisible(true);
+
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

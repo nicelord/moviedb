@@ -106,7 +106,7 @@ public class PostProcess
                 case "SCHEDULE":
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     data.append("&post_status=future&post_date=").append(sdf.format(this.fu.getSpinerDateTime().getValue()));
-            }
+            }            
             String postData = data.toString().replace("&amp;", "%26").replace("&amp;quot;", "\"");
             this.fu.getTxtLog().append(postData);
             this.fu.getTxtLog().append("\n");
