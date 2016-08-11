@@ -793,7 +793,6 @@ public class FormUtama extends javax.swing.JFrame {
         this.setEnabled(false);
         fs.toFront();
         fs.setLocationRelativeTo(this);
-        fs.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

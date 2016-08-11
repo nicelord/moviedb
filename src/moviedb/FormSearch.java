@@ -10,6 +10,7 @@ import com.jaunt.NotFound;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -18,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.ListModel;
 
@@ -56,7 +58,7 @@ public class FormSearch extends javax.swing.JFrame {
     private void initComponents() {
 
         txtSearchTitle = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listSearch = new javax.swing.JList<>();
         lblIMDB = new javax.swing.JLabel();
@@ -69,16 +71,23 @@ public class FormSearch extends javax.swing.JFrame {
         txtTitleResult = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
-        jButton1.setText("SUBMIT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchTitle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSearchTitleKeyPressed(evt);
+            }
+        });
+
+        btnSearch.setText("SUBMIT");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -141,7 +150,7 @@ public class FormSearch extends javax.swing.JFrame {
                                 .addGap(3, 3, 3)
                                 .addComponent(cmbTahunSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
+                                .addComponent(btnSearch)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -163,7 +172,7 @@ public class FormSearch extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(txtSearchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbTahunSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSearch)
                     .addComponent(txtTitleResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +189,7 @@ public class FormSearch extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cmbTahunSearch, jButton1, txtSearchTitle, txtTitleResult});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSearch, cmbTahunSearch, txtSearchTitle, txtTitleResult});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,12 +199,13 @@ public class FormSearch extends javax.swing.JFrame {
         this.fu.setEnabled(true);
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
 
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
+             
                 progressSearch.setValue(0);
                 progressSearch.setIndeterminate(true);
                 UserAgent userAgent = new UserAgent();
@@ -222,6 +232,7 @@ public class FormSearch extends javax.swing.JFrame {
                         }
                     }
                     listSearch.setModel(listModel);
+                    
 
                 } catch (ResponseException | NotFound ex) {
                     Logger.getLogger(FormSearch.class.getName()).log(Level.SEVERE, null, ex);
@@ -233,7 +244,7 @@ public class FormSearch extends javax.swing.JFrame {
             }
         });
         t.start();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     private void listSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listSearchMouseClicked
         // TODO add your handling code here:
@@ -263,10 +274,17 @@ public class FormSearch extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void txtSearchTitleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchTitleKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            btnSearchActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtSearchTitleKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cmbTahunSearch;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
